@@ -4,190 +4,319 @@
   <meta charset="UTF-8">
   <title>Doko Enterprises | NYC Handyman & Home Improvement</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
   <style>
+    :root {
+      --bg: #050816;
+      --card-bg: #0b1120;
+      --accent: #facc15;
+      --accent-soft: rgba(250, 204, 21, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2937;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
+
     body {
-      background: #f5f5f5;
-      color: #222;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
       line-height: 1.6;
       scroll-behavior: smooth;
     }
+
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: #111827;
-      color: #fff;
-      padding: 12px 16px;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(15, 23, 42, 0.85);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
     }
+
     nav {
-      max-width: 1000px;
+      max-width: 1040px;
       margin: 0 auto;
+      padding: 10px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+
     nav .logo {
-      font-weight: bold;
-      letter-spacing: 1px;
-      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 15px;
+      text-transform: uppercase;
+      color: var(--text-main);
     }
+
     nav ul {
       list-style: none;
       display: flex;
-      gap: 14px;
+      gap: 16px;
       font-size: 14px;
     }
+
     nav a {
-      color: #e5e7eb;
+      color: var(--text-muted);
       text-decoration: none;
+      padding: 6px 8px;
+      border-radius: 999px;
+      transition: background 0.15s, color 0.15s;
     }
+
     nav a:hover {
-      color: #facc15;
+      background: rgba(148, 163, 184, 0.12);
+      color: var(--accent);
     }
 
     .hero {
-      background: linear-gradient(to right, #111827, #1f2937);
-      color: #f9fafb;
-      padding: 40px 16px 36px;
+      padding: 32px 16px 40px;
     }
+
     .hero-inner {
-      max-width: 1000px;
+      max-width: 1040px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0,2fr) minmax(0,1.5fr);
-      gap: 24px;
-      align-items: center;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 28px;
+      align-items: stretch;
     }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.24), transparent 55%);
+      background-color: var(--card-bg);
+      border-radius: 18px;
+      padding: 24px 22px 22px;
+      box-shadow:
+        0 22px 45px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(148, 163, 184, 0.2);
+      border: 1px solid rgba(51, 65, 85, 0.9);
+    }
+
     .hero h1 {
-      font-size: 32px;
-      margin-bottom: 12px;
+      font-size: 30px;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
     }
-    .hero p {
-      color: #e5e7eb;
-      margin-bottom: 16px;
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 460px;
+      margin-bottom: 14px;
     }
+
+    .hero-badges {
+      margin-bottom: 14px;
+    }
+
     .hero-badges span {
-      display: inline-block;
-      background: #facc15;
-      color: #1f2937;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--accent-soft);
+      color: var(--accent);
       font-size: 11px;
-      padding: 4px 8px;
+      padding: 4px 9px;
       border-radius: 999px;
       margin-right: 6px;
       margin-top: 4px;
+      border: 1px solid rgba(250, 204, 21, 0.35);
     }
+
     .hero-actions {
       margin-top: 16px;
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
     }
+
     .btn-primary {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
       padding: 10px 18px;
-      background: #facc15;
+      background: var(--accent);
       color: #111827;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 999px;
       font-size: 14px;
       border: none;
       cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(250, 204, 21, 0.3);
+      transition: transform 0.12s, box-shadow 0.12s, background 0.12s;
     }
+
     .btn-primary:hover {
       background: #eab308;
+      transform: translateY(-1px);
+      box-shadow: 0 16px 36px rgba(250, 204, 21, 0.35);
     }
+
     .btn-outline {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
       padding: 9px 16px;
-      border-radius: 6px;
-      border: 1px solid #e5e7eb;
-      color: #e5e7eb;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--text-main);
       text-decoration: none;
       font-size: 14px;
+      background: rgba(15, 23, 42, 0.6);
+      transition: background 0.12s, border-color 0.12s, transform 0.12s;
     }
+
     .btn-outline:hover {
-      background: #e5e7eb;
-      color: #111827;
+      background: rgba(15, 23, 42, 0.95);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .hero-side {
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), #020617);
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(31, 41, 55, 0.7);
+    }
+
+    .hero-side-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-side ul {
+      font-size: 13px;
+      color: var(--text-main);
+      list-style: none;
+    }
+
+    .hero-side li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .hero-bullet-dot {
+      margin-top: 6px;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(250, 204, 21, 0.18);
     }
 
     .main-container {
-      max-width: 1000px;
-      margin: 24px auto 32px;
+      max-width: 1040px;
+      margin: 0 auto 32px;
       padding: 0 16px 32px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
     }
+
     section {
-      padding: 24px 0;
-      border-bottom: 1px solid #e5e7eb;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.8);
     }
+
     section:last-of-type {
       border-bottom: none;
     }
+
     .section-header {
       margin-bottom: 16px;
     }
+
     .section-header h2 {
-      font-size: 22px;
+      font-size: 20px;
       margin-bottom: 4px;
+      letter-spacing: -0.01em;
     }
+
     .section-header p {
-      font-size: 14px;
-      color: #6b7280;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 14px;
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
     }
 
     .two-col {
       display: grid;
       grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
-      gap: 24px;
+      gap: 22px;
     }
 
     .badge {
-      display: inline-block;
-      background: #eff6ff;
-      color: #1d4ed8;
-      font-size: 12px;
-      padding: 4px 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(15, 23, 42, 1);
+      color: #93c5fd;
+      font-size: 11px;
+      padding: 4px 9px;
       border-radius: 999px;
-      margin-right: 8px;
-      margin-top: 4px;
+      margin-right: 6px;
+      margin-top: 6px;
+      border: 1px solid rgba(59, 130, 246, 0.5);
     }
+
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 16px;
     }
+
     .card {
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
+      border-radius: 14px;
       padding: 16px;
-      background: #f9fafb;
+      background: linear-gradient(145deg, #020617, #020617);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
     }
+
     .card h3 {
-      font-size: 16px;
+      font-size: 15px;
       margin-bottom: 6px;
+      letter-spacing: -0.01em;
     }
+
     .card p {
-      font-size: 14px;
-      color: #4b5563;
+      font-size: 13px;
+      color: var(--text-muted);
     }
+
     .tag {
-      display: inline-block;
-      background: #f3f4f6;
-      color: #374151;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(15, 23, 42, 0.95);
+      color: #cbd5f5;
       font-size: 11px;
-      padding: 2px 6px;
+      padding: 3px 8px;
       border-radius: 999px;
       margin-right: 4px;
       margin-top: 4px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
     }
 
     form {
@@ -195,47 +324,108 @@
       gap: 12px;
       max-width: 500px;
     }
+
     label {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       margin-bottom: 2px;
     }
+
     input, select, textarea {
       width: 100%;
       padding: 8px 10px;
-      border-radius: 4px;
-      border: 1px solid #d1d5db;
-      font-size: 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      font-size: 13px;
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
     }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(148, 163, 184, 0.9);
+    }
+
     textarea {
       min-height: 100px;
       resize: vertical;
     }
+
     small {
-      font-size: 12px;
-      color: #6b7280;
+      font-size: 11px;
+      color: var(--text-muted);
     }
 
     footer {
       text-align: center;
       padding: 12px 16px 24px;
-      font-size: 12px;
-      color: #6b7280;
+      font-size: 11px;
+      color: rgba(148, 163, 184, 0.9);
     }
 
-    @media (max-width: 768px) {
+    .pill-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .payments-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .payment-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 1);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      font-size: 12px;
+    }
+
+    .payment-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+    }
+
+    .pay-crypto {
+      background: radial-gradient(circle at top, #22c55e, #16a34a);
+    }
+
+    .pay-cash {
+      background: radial-gradient(circle at top, #f97316, #ea580c);
+    }
+
+    .pay-wire {
+      background: radial-gradient(circle at top, #38bdf8, #0284c7);
+    }
+
+    @media (max-width: 840px) {
       .hero-inner {
         grid-template-columns: 1fr;
       }
-      .two-col {
-        grid-template-columns: 1fr;
-      }
+    }
+
+    @media (max-width: 640px) {
       nav ul {
-        font-size: 13px;
-        gap: 10px;
+        font-size: 12px;
+        gap: 8px;
       }
       .hero h1 {
-        font-size: 26px;
+        font-size: 24px;
+      }
+      .hero-card, .hero-side {
+        padding: 18px 14px 16px;
       }
     }
   </style>
@@ -249,33 +439,53 @@
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#payments">Payments</a></li>
       <li><a href="#booking">Booking</a></li>
     </ul>
   </nav>
 </header>
 
-<!-- HERO / HOME -->
 <section id="home" class="hero">
   <div class="hero-inner">
-    <div>
-      <h1>NYC Handyman & Home Improvement</h1>
-      <p>Quick, clean, and reliable work for businesses and homes across New York City. From small repairs to light renovations.</p>
+    <div class="hero-card">
+      <h1>NYC Handyman &amp; Home Improvement</h1>
+      <p class="hero-sub">
+        Quick, clean, and reliable work for businesses and homes across New York City —
+        from small repairs and punch‑list items to light renovations.
+      </p>
       <div class="hero-badges">
         <span>Licensed &amp; Insured</span>
         <span>Brooklyn • Queens • Manhattan • Bronx • Staten Island</span>
       </div>
       <div class="hero-actions">
-        <a href="#booking" class="btn-primary">Book a visit</a>
-        <a href="tel:+1-917-345-8607" class="btn-outline">Call (917) 345‑8607</a>
+        <a href="#booking" class="btn-primary">
+          <span>Book a visit</span>
+        </a>
+        <a href="tel:+1-917-345-8607" class="btn-outline">
+          <span>Call (917) 345‑8607</span>
+        </a>
       </div>
     </div>
-    <div>
-      <p style="font-size:14px; color:#d1d5db; margin-bottom:6px;">What I can help with</p>
-      <ul style="font-size:14px; color:#e5e7eb; list-style:disc; margin-left:18px;">
-        <li>General repairs and punch‑list items.</li>
-        <li>Room painting and touch‑ups.</li>
-        <li>Small kitchen and bathroom upgrades.</li>
-        <li>Furniture assembly and TV mounting.</li>
+
+    <div class="hero-side">
+      <div class="hero-side-title">What I can help with</div>
+      <ul>
+        <li>
+          <span class="hero-bullet-dot"></span>
+          <span>General repairs and punch‑list items for apartments, brownstones, and storefronts.</span>
+        </li>
+        <li>
+          <span class="hero-bullet-dot"></span>
+          <span>Room painting, touch‑ups, and trim with clean prep and sharp lines.</span>
+        </li>
+        <li>
+          <span class="hero-bullet-dot"></span>
+          <span>Small kitchen and bathroom upgrades, fixture swaps, and flooring.</span>
+        </li>
+        <li>
+          <span class="hero-bullet-dot"></span>
+          <span>Furniture assembly, shelving, curtain rods, and TV mounting.</span>
+        </li>
       </ul>
     </div>
   </div>
@@ -283,68 +493,78 @@
 
 <div class="main-container">
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="section-header">
       <h2>About Me</h2>
-      <p>Who I am and how I work in NYC homes.</p>
+      <p>Who I am and how I work in NYC homes and businesses.</p>
     </div>
-    <div class="two-col">
+    <div class="glass-panel two-col">
       <div>
-        <p>I run Doko Enterprises, providing reliable handyman and light renovation work across all five boroughs. I focus on practical fixes and upgrades that make your space easier to live or work in, without dragging projects out.</p>
-        <p>You can expect clear communication, on‑time arrivals, and a clean job site when I’m finished. I treat every apartment, brownstone, and storefront like it’s my own space, and I’m always upfront about scope, pricing, and timelines.</p>
-        <span class="badge">On‑time &amp; reliable</span>
-        <span class="badge">Clean job sites</span>
-        <span class="badge">Transparent pricing</span>
+        <p style="font-size:14px; color:var(--text-main); margin-bottom:10px;">
+          I run Doko Enterprises, providing reliable handyman and light renovation work across all five boroughs.
+          I focus on practical fixes and upgrades that make your space easier to live or work in, without dragging projects out.
+        </p>
+        <p style="font-size:14px; color:var(--text-main);">
+          You can expect clear communication, on‑time arrivals, and a clean job site when I’m finished.
+          I treat every apartment, brownstone, and storefront like it’s my own space, and I’m always upfront about scope,
+          pricing, and timelines.
+        </p>
+        <div style="margin-top:10px;">
+          <span class="badge">On‑time &amp; reliable</span>
+          <span class="badge">Clean job sites</span>
+          <span class="badge">Transparent pricing</span>
+        </div>
       </div>
       <div>
-        <h3 style="font-size:16px; margin-bottom:6px;">What clients can expect</h3>
-        <ul style="margin-left:18px; color:#4b5563; font-size:14px;">
-          <li>Fast reply to booking requests.</li>
-          <li>Clear estimates before work begins.</li>
-          <li>Respect for your home and neighbors.</li>
-          <li>Photos of the finished work if you’re not on‑site.</li>
+        <div class="pill-label">What clients can expect</div>
+        <ul style="margin-left:0; list-style:none; font-size:13px; color:var(--text-muted);">
+          <li style="margin-bottom:6px;">Fast replies to booking requests and questions.</li>
+          <li style="margin-bottom:6px;">Clear estimates before any work begins.</li>
+          <li style="margin-bottom:6px;">Respect for your home, building rules, and neighbors.</li>
+          <li>Progress photos and finished shots if you’re not on‑site.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section id="services">
     <div class="section-header">
       <h2>Services</h2>
-      <p>Handyman and small renovation services across the city.</p>
+      <p>Handyman and small renovation work across the city.</p>
     </div>
 
     <div class="cards">
       <div class="card">
         <h3>General Repairs</h3>
         <p>Door fixes, drywall patching, small leaks, caulking, hardware installs, and everyday punch‑list items.</p>
-        <small>Perfect for apartments and brownstones.</small><br>
-        <a href="#booking" class="btn-primary" style="margin-top:8px;">Book general repairs</a>
+        <small style="font-size:11px; color:var(--text-muted);">Perfect for apartments and brownstones.</small><br>
+        <a href="#booking" class="btn-primary" style="margin-top:10px; font-size:13px;">Book general repairs</a>
       </div>
 
       <div class="card">
-        <h3>Painting & Finishing</h3>
+        <h3>Painting &amp; Finishing</h3>
         <p>Single‑room repaints, touch‑ups, trim, and accent walls with careful prep and clean edges.</p>
-        <a href="#booking" class="btn-primary" style="margin-top:8px;">Book painting</a>
+        <a href="#booking" class="btn-primary" style="margin-top:10px; font-size:13px;">Book painting</a>
       </div>
 
       <div class="card">
         <h3>Small Renovations</h3>
         <p>Minor kitchen and bathroom upgrades, fixture swaps, flooring replacement, and small layout tweaks.</p>
-        <a href="#booking" class="btn-primary" style="margin-top:8px;">Book renovation consult</a>
+        <a href="#booking" class="btn-primary" style="margin-top:10px; font-size:13px;">Book renovation consult</a>
       </div>
 
       <div class="card">
-        <h3>Assembly & Installations</h3>
+        <h3>Assembly &amp; Installations</h3>
         <p>Furniture assembly, TV mounting, shelving, curtain rods, mirrors, and more.</p>
-        <a href="#booking" class="btn-primary" style="margin-top:8px;">Book installations</a>
+        <a href="#booking" class="btn-primary" style="margin-top:10px; font-size:13px;">Book installations</a>
       </div>
     </div>
 
-    <div style="margin-top:18px;">
-      <h3 style="font-size:16px; margin-bottom:6px;">Areas served</h3>
+    <div style="margin-top:20px;" class="glass-panel">
+      <h3 style="font-size:14px; margin-bottom:6px;">Areas served</h3>
+      <p style="font-size:13px; color:var(--text-muted); margin-bottom:6px;">
+        I work across New York City — most projects are in these boroughs:
+      </p>
       <span class="badge">Brooklyn</span>
       <span class="badge">Queens</span>
       <span class="badge">Manhattan</span>
@@ -353,7 +573,6 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="section-header">
       <h2>Past Projects</h2>
@@ -362,92 +581,134 @@
 
     <div class="cards">
       <div class="card">
-        <h3>Bathroom Refresh – Brooklyn</h3>
+        <h3>Bathroom Refresh — Brooklyn</h3>
         <p>Replaced fixtures, repaired tile, repainted walls, and upgraded lighting in a one‑bath apartment.</p>
         <span class="tag">Bathroom</span>
         <span class="tag">Brooklyn</span>
       </div>
 
       <div class="card">
-        <h3>Living Room Paint – Queens</h3>
+        <h3>Living Room Paint — Queens</h3>
         <p>Smoothed walls, primed, and applied two coats of durable paint for a bright, clean finish.</p>
         <span class="tag">Painting</span>
         <span class="tag">Queens</span>
       </div>
 
       <div class="card">
-        <h3>TV Wall & Shelving – Manhattan</h3>
+        <h3>TV Wall &amp; Shelving — Manhattan</h3>
         <p>Mounted TV, hid cables, and installed floating shelves to create a clean media wall.</p>
         <span class="tag">Installations</span>
         <span class="tag">Manhattan</span>
       </div>
     </div>
 
-    <p style="font-size:14px; color:#4b5563; margin-top:12px;">
+    <p style="font-size:13px; color:var(--text-muted); margin-top:12px;">
       Replace these examples with your own jobs and photos. You can also link to an online gallery or Instagram.
     </p>
   </section>
 
-  <!-- BOOKING -->
+  <section id="payments">
+    <div class="section-header">
+      <h2>Payments Accepted</h2>
+      <p>Simple, flexible payment options for NYC clients.</p>
+    </div>
+
+    <div class="glass-panel">
+      <div class="pill-label">How you can pay</div>
+      <div class="payments-row">
+        <div class="payment-pill">
+          <div class="payment-icon pay-crypto">₿</div>
+          <div>
+            <div style="font-size:12px; font-weight:600;">Crypto</div>
+            <div style="font-size:11px; color:var(--text-muted);">Bitcoin, Ethereum, and stablecoins (USDC/USDT).</div>
+          </div>
+        </div>
+
+        <div class="payment-pill">
+          <div class="payment-icon pay-cash">$</div>
+          <div>
+            <div style="font-size:12px; font-weight:600;">Cash</div>
+            <div style="font-size:11px; color:var(--text-muted);">Cash payments accepted on completion for smaller jobs.</div>
+          </div>
+        </div>
+
+        <div class="payment-pill">
+          <div class="payment-icon pay-wire">⇄</div>
+          <div>
+            <div style="font-size:12px; font-weight:600;">Wire / Transfer</div>
+            <div style="font-size:11px; color:var(--text-muted);">Bank wire or Zelle for larger projects and businesses.</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:11px; color:var(--text-muted); margin-top:10px;">
+        Details for crypto wallets or bank transfer are provided on your estimate or invoice.
+      </p>
+    </div>
+  </section>
+
   <section id="booking">
     <div class="section-header">
-      <h2>Booking & Quotes</h2>
+      <h2>Booking &amp; Quotes</h2>
       <p>Tell me about your project and preferred time. I’ll reply as soon as possible.</p>
     </div>
 
-    <form action="#" method="post">
-      <div>
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" placeholder="Your full name" required>
-      </div>
+    <div class="glass-panel">
+      <form action="#" method="post">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your full name" required>
+        </div>
 
-      <div>
-        <label for="phone">Phone</label>
-        <input id="phone" name="phone" type="tel" placeholder="Best number to reach you" required>
-      </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="Best number to reach you" required>
+        </div>
 
-      <div>
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" placeholder="you@example.com">
-      </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com">
+        </div>
 
-      <div>
-        <label for="borough">Borough</label>
-        <select id="borough" name="borough">
-          <option value="">Select borough</option>
-          <option>Brooklyn</option>
-          <option>Queens</option>
-          <option>Manhattan</option>
-          <option>Bronx</option>
-          <option>Staten Island</option>
-        </select>
-      </div>
+        <div>
+          <label for="borough">Borough</label>
+          <select id="borough" name="borough">
+            <option value="">Select borough</option>
+            <option>Brooklyn</option>
+            <option>Queens</option>
+            <option>Manhattan</option>
+            <option>Bronx</option>
+            <option>Staten Island</option>
+          </select>
+        </div>
 
-      <div>
-        <label for="service">Service needed</label>
-        <select id="service" name="service">
-          <option value="">Select a service</option>
-          <option>General repairs</option>
-          <option>Painting</option>
-          <option>Small renovation</option>
-          <option>Assembly / installations</option>
-          <option>Other</option>
-        </select>
-      </div>
+        <div>
+          <label for="service">Service needed</label>
+          <select id="service" name="service">
+            <option value="">Select a service</option>
+            <option>General repairs</option>
+            <option>Painting</option>
+            <option>Small renovation</option>
+            <option>Assembly / installations</option>
+            <option>Other</option>
+          </select>
+        </div>
 
-      <div>
-        <label for="time">Preferred days / time</label>
-        <input id="time" name="time" type="text" placeholder="Example: weekday evenings, Saturdays, etc.">
-      </div>
+        <div>
+          <label for="time">Preferred days / time</label>
+          <input id="time" name="time" type="text" placeholder="Example: weekday evenings, Saturdays, etc.">
+        </div>
 
-      <div>
-        <label for="details">Project details</label>
-        <textarea id="details" name="details" placeholder="Short description + any deadlines or notes."></textarea>
-      </div>
+        <div>
+          <label for="details">Project details</label>
+          <textarea id="details" name="details" placeholder="Short description + any deadlines or notes."></textarea>
+        </div>
 
-      <button type="submit" class="btn-primary">Submit request</button>
-      <small>You can also call or text directly: (917) 345‑8607.</small>
-    </form>
+        <button type="submit" class="btn-primary" style="margin-top:4px;">Submit request</button>
+        <small style="display:block; margin-top:6px;">
+          You can also call or text directly: (917) 345‑8607.
+        </small>
+      </form>
+    </div>
   </section>
 
 </div>
