@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Name Contracting | NYC Handyman & Home Improvement</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background: #f5f5f5;
+      color: #222;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #111827;
+      color: #fff;
+      padding: 12px 16px;
+    }
+    nav {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      font-weight: bold;
+      letter-spacing: 1px;
+      font-size: 16px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 14px;
+      font-size: 14px;
+    }
+    nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: #facc15;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #111827, #1f2937);
+      color: #f9fafb;
+      padding: 40px 16px 36px;
+    }
+    .hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0,2fr) minmax(0,1.5fr);
+      gap: 24px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      color: #e5e7eb;
+      margin-bottom: 16px;
+    }
+    .hero-badges span {
+      display: inline-block;
+      background: #facc15;
+      color: #1f2937;
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      margin-right: 6px;
+      margin-top: 4px;
+    }
+    .hero-actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 10px 18px;
+      background: #facc15;
+      color: #111827;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: #eab308;
+    }
+    .btn-outline {
+      display: inline-block;
+      padding: 9px 16px;
+      border-radius: 6px;
+      border: 1px solid #e5e7eb;
+      color: #e5e7eb;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .btn-outline:hover {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .main-container {
+      max-width: 1000px;
+      margin: 24px auto 32px;
+      padding: 0 16px 32px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    section {
+      padding: 24px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    section:last-of-type {
+      border-bottom: none;
+    }
+    .section-header {
+      margin-bottom: 16px;
+    }
+    .section-header h2 {
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+    .section-header p {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
+      gap: 24px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      margin-right: 8px;
+      margin-top: 4px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 16px;
+      background: #f9fafb;
+    }
+    .card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+    .card p {
+      font-size: 14px;
+      color: #4b5563;
+    }
+    .tag {
+      display: inline-block;
+      background: #f3f4f6;
+      color: #374151;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      margin-right: 4px;
+      margin-top: 4px;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+      max-width: 500px;
+    }
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 4px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+    }
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    small {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    footer {
+      text-align: center;
+      padding: 12px 16px 24px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      nav ul {
+        font-size: 13px;
+        gap: 10px;
+      }
+      .hero h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">Your Name Contracting</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#booking">Booking</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO / HOME -->
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>NYC Handyman & Home Improvement</h1>
+      <p>Quick, clean, and reliable work for apartments and homes across New York City. From small repairs to light renovations.</p>
+      <div class="hero-badges">
+        <span>Licensed &amp; Insured</span>
+        <span>Brooklyn • Queens • Manhattan</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#booking" class="btn-primary">Book a visit</a>
+        <a href="tel:+1-555-555-5555" class="btn-outline">Call (555) 555‑5555</a>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:14px; color:#d1d5db; margin-bottom:6px;">What I can help with</p>
+      <ul style="font-size:14px; color:#e5e7eb; list-style:disc; margin-left:18px;">
+        <li>General repairs and punch‑list items.</li>
+        <li>Room painting and touch‑ups.</li>
+        <li>Small kitchen and bathroom upgrades.</li>
+        <li>Furniture assembly and TV mounting.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="main-container">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header">
+      <h2>About Me</h2>
+      <p>Who I am and how I work in NYC homes.</p>
+    </div>
+    <div class="two-col">
+      <div>
+        <p>Write 3–5 sentences here introducing yourself, how long you’ve been doing this type of work, and what kind of NYC apartments or homes you usually work in.</p>
+        <p>Mention that you show up on time, keep communication clear, and leave the space clean so it’s easy for clients to trust you in their home.</p>
+        <span class="badge">On‑time &amp; reliable</span>
+        <span class="badge">Clean job sites</span>
+        <span class="badge">Transparent pricing</span>
+      </div>
+      <div>
+        <h3 style="font-size:16px; margin-bottom:6px;">What clients can expect</h3>
+        <ul style="margin-left:18px; color:#4b5563; font-size:14px;">
+          <li>Fast reply to booking requests.</li>
+          <li>Clear estimates before work begins.</li>
+          <li>Respect for your home and neighbors.</li>
+          <li>Photos of the finished work if you’re not on‑site.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-header">
+      <h2>Services</h2>
+      <p>Handyman and small renovation services across the city.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>General Repairs</h3>
+        <p>Door fixes, drywall patching, small leaks, caulking, hardware installs, and everyday punch‑list items.</p>
+        <small>Perfect for apartments and brownstones.</small><br>
+        <a href="#booking" class="btn-primary" style="margin-top:8px;">Book general repairs</a>
+      </div>
+
+      <div class="card">
+        <h3>Painting & Finishing</h3>
+        <p>Single‑room repaints, touch‑ups, trim, and accent walls with careful prep and clean edges.</p>
+        <a href="#booking" class="btn-primary" style="margin-top:8px;">Book painting</a>
+      </div>
+
+      <div class="card">
+        <h3>Small Renovations</h3>
+        <p>Minor kitchen and bathroom upgrades, fixture swaps, flooring replacement, and small layout tweaks.</p>
+        <a href="#booking" class="btn-primary" style="margin-top:8px;">Book renovation consult</a>
+      </div>
+
+      <div class="card">
+        <h3>Assembly & Installations</h3>
+        <p>Furniture assembly, TV mounting, shelving, curtain rods, mirrors, and more.</p>
+        <a href="#booking" class="btn-primary" style="margin-top:8px;">Book installations</a>
+      </div>
+    </div>
+
+    <div style="margin-top:18px;">
+      <h3 style="font-size:16px; margin-bottom:6px;">Areas served</h3>
+      <span class="badge">Brooklyn</span>
+      <span class="badge">Queens</span>
+      <span class="badge">Manhattan</span>
+      <!-- Add/remove boroughs as needed -->
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header">
+      <h2>Past Projects</h2>
+      <p>Recent work completed in NYC homes and apartments.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Bathroom Refresh – Brooklyn</h3>
+        <p>Replaced fixtures, repaired tile, repainted walls, and upgraded lighting in a one‑bath apartment.</p>
+        <span class="tag">Bathroom</span>
+        <span class="tag">Brooklyn</span>
+      </div>
+
+      <div class="card">
+        <h3>Living Room Paint – Queens</h3>
+        <p>Smoothed walls, primed, and applied two coats of durable paint for a bright, clean finish.</p>
+        <span class="tag">Painting</span>
+        <span class="tag">Queens</span>
+      </div>
+
+      <div class="card">
+        <h3>TV Wall & Shelving – Manhattan</h3>
+        <p>Mounted TV, hid cables, and installed floating shelves to create a clean media wall.</p>
+        <span class="tag">Installations</span>
+        <span class="tag">Manhattan</span>
+      </div>
+    </div>
+
+    <p style="font-size:14px; color:#4b5563; margin-top:12px;">
+      Replace these examples with your own jobs and photos. You can also link to an online gallery or Instagram.
+    </p>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="booking">
+    <div class="section-header">
+      <h2>Booking & Quotes</h2>
+      <p>Tell me about your project and preferred time. I’ll reply as soon as possible.</p>
+    </div>
+
+    <form action="#" method="post">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your full name" required>
+      </div>
+
+      <div>
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" placeholder="Best number to reach you" required>
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com">
+      </div>
+
+      <div>
+        <label for="borough">Borough</label>
+        <select id="borough" name="borough">
+          <option value="">Select borough</option>
+          <option>Brooklyn</option>
+          <option>Queens</option>
+          <option>Manhattan</option>
+          <option>Bronx</option>
+          <option>Staten Island</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="service">Service needed</label>
+        <select id="service" name="service">
+          <option value="">Select a service</option>
+          <option>General repairs</option>
+          <option>Painting</option>
+          <option>Small renovation</option>
+          <option>Assembly / installations</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="time">Preferred days / time</label>
+        <input id="time" name="time" type="text" placeholder="Example: weekday evenings, Saturdays, etc.">
+      </div>
+
+      <div>
+        <label for="details">Project details</label>
+        <textarea id="details" name="details" placeholder="Short description + any deadlines or notes."></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary">Submit request</button>
+      <small>You can also call or text directly: (917) 345‑8607.</small>
+    </form>
+  </section>
+
+</div>
+
+<footer>
+  © 2026 Sefer Doko Contracting · NYC Home Improvement · Licensed &amp; Insured
+</footer>
+</body>
+</html>
